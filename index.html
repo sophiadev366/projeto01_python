@@ -13,6 +13,7 @@ table{
     background-color: beige;
     border-radius: 50%;
     width: 50%;
+
     
 
 }
@@ -20,10 +21,18 @@ thead{
 background-color: pink;
 
 }
+#relogio{
+padding: 100px;
+position:relative;
+background-color:aqua;
+border-radius: 50%;
 
+}
 </style>
 </head>
 <body>
+
+
 <table>
 <thead>
 <tr>
@@ -43,11 +52,70 @@ Sophia
 </thead>
 
 </table>
-    
+  <div class="container">
+<div id="relogio">
+    <h2>
+Meu relógio em javascript
+
+<div id="horas">Horas</div><div id="minutos">Minutos</div><div id="segundo">Segundos</div>
+
+    </h2>
+
+</div>
+  </div>  
 
 <script>
 
+function tempo_agora(){
 
+const tempo = new Date();
+const horas=tempo.getHours();
+const minutos=tempo.getMinutes();
+const segundos=tempo.getSeconds();
+
+const h=horas_certa(horas);
+const m=horas_certa(minutos);
+const s=horas_certa(segundos);
+
+
+
+const hora=document.getElementById('horas').innerHTML='Horas :'+h;
+const minuto=document.getElementById('minutos').innerHTML='Minutos :'+m;
+const segundo=document.getElementById('segundo').innerHTML='Segundos:'+s;
+
+const tamanho_do_relogio=document.getElementById('relogio')
+
+tamanho_do_relogio.style.borderRadius=s+"%";
+
+tamanho_do_relogio.style.background="rgba(10"+s+",20"+s+",10"+s+",0."+s+")";
+
+
+const h_t=12;
+
+for(let x=1;x<h_t;x++){
+
+
+}
+
+
+
+}
+
+
+
+
+
+const contar = setInterval(tempo_agora,1000)
+
+
+function horas_certa(x){
+
+if(x<10){
+ x = "0" + x;
+return x;
+}
+return x;
+}
 
 </script>
 
